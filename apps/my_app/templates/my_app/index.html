@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Sign Up</title>
+  </head>
+  <body>
+        <p>{{request.session.username}}{{request.session.user_id}}</p>
+        <p></p>
+        
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+    <div class = "container">
+        <h1>Welcome!!! Please use the form below to sign up</h1>
+        <h2>If you are a current user, please sign in otherwise please register below!!!</h2>
+        <form action = '/my_app/register' method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name" >First Name</label>
+                <input type="first_name" class="form-control" name="fname" placeholder="Please enter your first name">
+            </div>
+            <div class="form-group">
+                <label for="first_name" >Last Name</label>
+                <input type="first_name" class="form-control" name="lname" placeholder="Please enter your last name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email </label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="Password" >Password</label>
+                <input type="Password" class="form-control" name="pwd">
+            </div>
+            <div class="form-group">
+                <label for="Password" >Confirm pwd</label>
+                <input type="Password" class="form-control" name="pwd1">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <form action = '/my_app/login' method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email </label>
+                <input type="email" class="form-control" name="lemail" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="Password" >Password</label>
+                <input type="Password" class="form-control" name="lpwd">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        {% if messages %}
+        <div id='messages'>
+        <ul class>
+            {% for message in messages %}
+            <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
